@@ -1,23 +1,22 @@
-const { defaults } = require('jest-config');
+const {defaults} = require('jest-config')
 
-module.exports = {
-  snapshotSerializers: [
-    'enzyme-to-json/serializer',
-  ],
+const config = {
   verbose: true,
-  moduleFileExtensions: [...defaults.moduleFileExtensions, 'es6'],
-  modulePaths: ['<rootDir>/src'],
-  moduleDirectories: [
-    ...defaults.moduleDirectories,
-    '<rootDir>/node_modules'],
+  setupFiles: ['<rootDir>/enzyme.config.js'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  transform: {
+    '^.+\\.(ts|js|jsx|es6)?$': 'babel-jest',
+  },
+  transformIgnorePatterns: [
+    '/node_modules/',
+  ],
   moduleNameMapper: {
-    '\\.(sa|sc|c)ss$': 'identity-obj-proxy',
+    '^.+\\.(svg|(sa|sc|c)ss)$': 'identity-obj-proxy',
     '@(components|services)/(.*)$': '<rootDir>/src/$1/$2',
   },
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
-  transform: {
-    '^.+\\.(js|jsx|es6)?$': 'babel-jest',
-  },
-};
+}
+
+module.exports = {...defaults, ...config}
