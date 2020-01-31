@@ -107,3 +107,33 @@ ol li {
 p {
     font-weight: 250px;
 }
+
+li {
+    list-style: none;
+    text-align: left;
+    border: 1px solid;
+    margin: 4px;
+    padding: 5px;
+}
+
+.usersToDos li {
+    border: 1px solid;
+    margin: 4px;
+    padding: 5px;
+}
+
+.todo-complete {
+    color: silver;
+}
+.todo-pending {
+    font-weight: bold;
+}
+
+.userInfo .username {
+    font-weight: bold;
+}
+
+.search-highlight {
+    color: white;
+    background-color: red;
+}
