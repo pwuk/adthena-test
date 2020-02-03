@@ -4,9 +4,12 @@ const useFetch = (dataAPIKey) => {
   const [theData, setTheData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/${dataAPIKey}`)
-      .then((result) => result.json())
-      .then((result) => setTheData(result));
+    const fetchData = async () => {
+      const result = await fetch(`https://jsonplaceholder.typicode.com/${dataAPIKey}`);
+      const data = await result.json();
+      setTheData(data);
+    };
+    fetchData();
   }, [dataAPIKey]);
 
   return theData;

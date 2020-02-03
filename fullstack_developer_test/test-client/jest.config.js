@@ -19,4 +19,5 @@ const config = {
   ],
 }
 
-module.exports = {...defaults, ...config}
+
+module.exports = {...defaults, ...config, setupFiles: ['./jest.setup.js']}
